@@ -1,0 +1,3 @@
+rootcint -f ../src/KM2AEventDict.cc -c KM2AEvent.h KM2AEventLinkDef.h
+rootcint -f ../src/LHRecEventDict.cc -c  LHRecEvent.h LHRecEventLinkDef.h
+rootcint -f ../src/LHEventDict.cc -c LHEvent.h LHEventLinkDef.h

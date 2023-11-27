@@ -1,0 +1,8 @@
+source setup.bsh
+#g++ -o LHAASOFit LHAASOFit.cc -I include ./src/*.cc  `root-config --cflags --libs` -lMinuit -lMatrix
+
+#g++ -o ToffCalProcess ToffCalProcess.cc ./src/*.cc `root-config --cflags --libs` -I ./include/ -L ./lib/ -l:slalib64.a -lMinuit -lMatrix
+#g++ -o ToffCalProcess_hist_test ToffCalProcess_rec_PreToff_hist.cc ./src/*.cc `root-config --cflags --libs` -I ./include/ -L ./lib/ -l:slalib64.a -lMinuit -lMatrix
+#g++ -o KM2Arecdec KM2Arecdec.cc ./src/[^BST]*.cc `root-config --cflags --libs` -I ./include/ -L ./lib -l:slalib64.a -lMinuit
+g++ -o KM2Arecdec_bk_2021 KM2Arecdec_bk_2021.cc ./src/[^BST]*.cc `root-config --cflags --libs` -I ./include/ -L ./lib -l:slalib64.a -lMinuit
+
