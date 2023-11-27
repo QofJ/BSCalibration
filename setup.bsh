@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#source /afs/ihep.ac.cn/users/y/ybjx/anysw/slc5_ia64_gcc41/external/env.sh
+#source /afs/ihep.ac.cn/users/y/ybjx/anysw/slc5_ia64_gcc48/external/enva.sh
+source /cvmfs/lhaaso.ihep.ac.cn/anysw/slc5_ia64_gcc73/external/envd.sh
+export G4WORKDIR=`pwd`
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$G4WORKDIR/src
+#export geant4_envbindir=`pwd`
+
