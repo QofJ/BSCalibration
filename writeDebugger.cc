@@ -24,6 +24,13 @@ int WritetxtFile(const char* outroot, const char* outnt, const char* outtxt = "/
 	NED = nt_out->GetEntriesFast();
 	FILE* f = fopen(txtpath, "w");
 
+	std::cout << "Opening file to write: " << txtpath << std::endl;
+	if (f == NULL) {
+		std::cout << "Error opening file!" << std::endl;
+	} else {
+		std::cout << "File opened successfully!" << std::endl;
+	}
+
 	fprintf(f, "Type ID Timeoffset\n");
 	for (i = 0; i < NED; i++)
 	{
@@ -33,6 +40,7 @@ int WritetxtFile(const char* outroot, const char* outnt, const char* outtxt = "/
 	}
 	fclose(f);
 	outfile->Close();
+	std::cout << "File closed successfully!" << std::endl;
 
 	return 0;
 

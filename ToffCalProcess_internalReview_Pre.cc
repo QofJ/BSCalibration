@@ -177,7 +177,7 @@ int main(int argc, char *argv[])
 	char outpath[200] = "root://eos01.ihep.ac.cn//eos/user/q/qijincan/brightsource/result/";
 	char temp[200];
 
-	char ToffsetTxt[200] = "/eos/user/q/qijincan/brightsource/result/Toffset_";
+	char ToffsetTxt[200] = "/home/lhaaso/qijincan/CodeCollection/BSCalibration/result/Toffset_";
 	std::string strArgv1(argv[1]);
 	size_t pos = strArgv1.find("_part");
 	if (pos != std::string::npos)
