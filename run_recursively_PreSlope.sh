@@ -19,4 +19,4 @@ time ./ToffCalProcess_recur_PreSlope "${thisRunOutname}" "${iter}" "${rin}" "${r
 
 FirstRunFlag="NotFirstRun"
 RunCount=$((RunCount+1))
-hep_sub run_recursively_PreSlope.sh -argu "${outname}" "${iter}" "${rin}" "${rout}" "${el}" "${dra}" "${ddec}" "${FirstRunFlag}" "${RunCount}" -g lhaaso
+hep_sub run_recursively_PreSlope.sh -argu "${outname}" "${iter}" "${rin}" "${rout}" "${el}" "${dra}" "${ddec}" "${FirstRunFlag}" "${RunCount}" -g lhaaso -mem 600

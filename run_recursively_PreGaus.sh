@@ -21,5 +21,5 @@ time ./ToffCalProcess_recur_PreGaus "${thisRunOutname}" "${iter}" "${rin}" "${ro
 FirstRunFlag="NotFirstRun"
 RunCount=$((RunCount+1))
 if [ ${RunCount} -le ${recursionDepth} ]; then
-    hep_sub run_recursively_PreGaus.sh -argu "${outname}" "${iter}" "${rin}" "${rout}" "${el}" "${dra}" "${ddec}" "${FirstRunFlag}" "${RunCount}" -g lhaaso
+    hep_sub run_recursively_PreGaus.sh -argu "${outname}" "${iter}" "${rin}" "${rout}" "${el}" "${dra}" "${ddec}" "${FirstRunFlag}" "${RunCount}" -g lhaaso -mem 600
 fi

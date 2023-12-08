@@ -39,18 +39,18 @@ hep_sub run_recursively_PreSlope.sh -argu "${outname}" "${iter}" "${rin}" "${rou
 
 首次运行：
 ```bash
-hep_sub run_recursively_PreSlope.sh -argu CalVf_MPV_PreToff_confit0p0001_E10_0_1p6.root 10 0 1.6 10 0 0 FristRun 1 -g lhaaso
+hep_sub run_recursively_PreSlope.sh -argu CalVf_MPV_PreToff_confit0p0001_E10_0_1p6.root 10 0 1.6 10 0 0 FristRun 1 -g lhaaso -mem 600
 ```
 非首次运行：
 ```bash
-hep_sub run_recursively_PreSlope.sh -argu CalVf_MPV_PreToff_confit0p0001_E10_0_1p6.root 10 0 1.6 10 0 0 NotFirstRun 2 -g lhaaso
+hep_sub run_recursively_PreSlope.sh -argu CalVf_MPV_PreToff_confit0p0001_E10_0_1p6.root 10 0 1.6 10 0 0 NotFirstRun 2 -g lhaaso -mem 600
 ```
 ### Gaussian抽样预置偏置
 配置：
 - ROI半径1.6$^\circ$
 - 伽马能量>10TeV
 ```bash
-hep_sub run_recursively_PreGaus.sh -argu CalVf_MPV_PreToffGaus_confit0p0001_E10_0_1p6.root 10 0 1.6 10 0 0 FristRun 1 -g lhaaso
+hep_sub run_recursively_PreGaus.sh -argu CalVf_MPV_PreToffGaus_confit0p0001_E10_0_1p6.root 10 0 1.6 10 0 0 FristRun 1 -g lhaaso -mem 600
 ```
 # 注意事项
 - EOS文件系统，在提交作业时必须使用xrootd协议读写，尽管在本地测试时可以不使用xrootd协议前缀，但是在提交作业时必须使用xrootd协议前缀，否则会出现无法读取文件的情况

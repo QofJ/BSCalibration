@@ -149,6 +149,14 @@ int WritetxtFile(const char *outroot, const char *outnt, const char *outtxt = "/
 	strcpy(txtpath, outtxt);
 	NED = nt_out->GetEntriesFast();
 	FILE *f = fopen(txtpath, "w");
+	if (f == NULL)
+	{
+		std::cout << "Error opening file!" << std::endl;
+	}
+	else
+	{
+		std::cout << "File opened successfully!" << std::endl;
+	}
 
 	fprintf(f, "Type ID Timeoffset\n");
 	for (i = 0; i < NED; i++)
@@ -159,6 +167,7 @@ int WritetxtFile(const char *outroot, const char *outnt, const char *outtxt = "/
 	}
 	fclose(f);
 	outfile->Close();
+	std::cout << "File closed successfully!" << std::endl;
 
 	return 0;
 }
@@ -178,6 +187,7 @@ int main(int argc, char *argv[])
 	char temp[200];
 
 	char ToffsetTxt[200] = "/home/lhaaso/qijincan/CodeCollection/BSCalibration/result/Toffset_";
+	std::cout << "ToffsetTxt:" << ToffsetTxt << std::endl;
 	std::string strArgv1(argv[1]);
 	size_t pos = strArgv1.find("_part");
 	if (pos != std::string::npos)
@@ -202,12 +212,18 @@ int main(int argc, char *argv[])
 		bscal->Init();
 		if (i == 0)
 		{
-			bscal->SetPreToffset("/home/lhaaso/qijincan/CodeCollection/BSCalibration/config/TrueCal_mean_211001_221001.txt", "/home/lhaaso/qijincan/CodeCollection/BSCalibration/config/pre_TimeOffset.txt");
+			bscal->SetPreToffset("/home/lhaaso/qijincan/CodeCollection/BSCalibration/config/TrueCal_mean_211001_221001.txt", "/home/lhaaso/qijincan/CodeCollection/BSCalibration/config/pre_TimeOffset_Gaus.txt");
 			// bscal->SetPreToffset("/home/lhaaso/qijincan/KM2ADatarec_V2/config/TrueCal_mean_211001_221001.txt","/home/lhaaso/qijincan/KM2ADatarec_V2/config/pre_TimeOffset.txt");
 			// bscal->SetToffset("/home/lhaaso/qijincan/KM2ADatarec_V2/result/CalVf_MPV_confit0p0001_E20_0_1_Ra+2_I75.txt");
 		}
-		if (i == 0 && argv[8] && !strcmp(argv[8], "FirstRun"))
+
+		if (i == 0 && argv[8] && strcmp(argv[8], "FirstRun"))
+		{
+			std::cout << "ToffsetED[1] = " << bscal->GetToffsetED()[1] << std::endl;
+			std::cout << "ToffsetFile = " << ToffsetTxt << std::endl;
 			bscal->SetToffset(ToffsetTxt);
+			std::cout << "ToffsetED[1] = " << bscal->GetToffsetED()[1] << std::endl;
+		}
 		Calibration(bscal, rin, rout, El, dCenterx, dCentery);
 		bscal->GenerateToffset("ED", 2);
 		bscal->NormToffset();
@@ -244,6 +260,10 @@ int main(int argc, char *argv[])
 	char lastIter[200];
 	strcpy(lastIter, "EDs_ITER_");
 	strcat(lastIter, std::to_string(ITER).c_str());
+	std::cout << "Start to write txt file" << std::endl;
+	std::cout << "outpath:" << outpath << std::endl;
+	std::cout << "lastIter:" << lastIter << std::endl;
+	std::cout << "ToffsetTxt:" << ToffsetTxt << std::endl;
 	WritetxtFile(outpath, lastIter, ToffsetTxt);
 
 	printf("outpath:%s ,temp:%s\n", outpath, temp);
